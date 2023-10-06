@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ENTRY = process.env.ENTRY;
@@ -9,7 +9,7 @@ console.log(`ENTRY: ${ENTRY}`);
 module.exports = {
   mode: 'production',
   entry: {
-    [ENTRY]: `./src/${ENTRY}.js`
+    [ENTRY]: `./src/z-temporary/${ENTRY}.js`
   },
   output: {
     filename: '[name].js',
@@ -57,8 +57,8 @@ module.exports = {
       inject: true,
       chunksSortMode: 'auto'
     }),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['lib'],
-    }),
+    // new CleanWebpackPlugin({
+    //   cleanAfterEveryBuildPatterns: ['./*.js', './*.html'],
+    // }),
   ],
 };
